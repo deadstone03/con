@@ -1,16 +1,18 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Created by xingdai on 5/6/17.
  */
 
 class Counter {
-    private int count = 0;
+    AtomicInteger count = new AtomicInteger(0);
 
-    public synchronized void inc() {
-        count ++;
+    public void inc() {
+        count.incrementAndGet();
     }
 
-    public synchronized int getCount() {
-        return count;
+    public int getCount() {
+        return count.get();
     }
 }
 
